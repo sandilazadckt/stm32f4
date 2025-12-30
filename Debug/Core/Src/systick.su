@@ -1,0 +1,4 @@
+../Core/Src/systick.c:6:6:systick_init	24	static
+../Core/Src/systick.c:27:6:delay_ms	24	static,ignoring_inline_asm
+../Core/Src/systick.c:36:10:get_tick	4	static
+../Core/Src/systick.c:40:6:systick_handler	4	static

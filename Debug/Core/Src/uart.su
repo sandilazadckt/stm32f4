@@ -1,0 +1,8 @@
+../Core/Src/uart.c:9:10:calculate_brr	16	static
+../Core/Src/uart.c:14:10:get_apb2_clock	24	static
+../Core/Src/uart.c:36:6:uart_debug_init	16	static
+../Core/Src/uart.c:70:6:uart_write	16	static
+../Core/Src/uart.c:75:9:uart_read	4	static
+../Core/Src/uart.c:80:6:uart_write_string	16	static
+../Core/Src/uart.c:86:9:uart_read_timeout	24	static
+../Core/Src/uart.c:97:9:uart_data_available	4	static

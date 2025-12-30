@@ -1,0 +1,8 @@
+../Core/Src/uart.c:9:10:calculate_brr	1
+../Core/Src/uart.c:14:10:get_apb2_clock	2
+../Core/Src/uart.c:36:6:uart_debug_init	1
+../Core/Src/uart.c:70:6:uart_write	2
+../Core/Src/uart.c:75:9:uart_read	2
+../Core/Src/uart.c:80:6:uart_write_string	2
+../Core/Src/uart.c:86:9:uart_read_timeout	3
+../Core/Src/uart.c:97:9:uart_data_available	1
