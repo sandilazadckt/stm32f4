@@ -765,7 +765,7 @@ HAL_StatusTypeDef HAL_SPI_UnRegisterCallback(SPI_HandleTypeDef *hspi, HAL_SPI_Ca
   *               the configuration information for SPI module.
   * @param  pData pointer to data buffer (u8 or u16 data elements)
   * @param  Size amount of data elements (u8 or u16) to be sent
-  * @param  Timeout Timeout duration in ms
+  * @param  Timeout Timeout duration in msr
   * @retval HAL status
   */
 HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef *hspi, const uint8_t *pData, uint16_t Size, uint32_t Timeout)
