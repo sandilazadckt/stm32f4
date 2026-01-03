@@ -1,0 +1,12 @@
+../Core/Src/w5500_driver.c:164:6:ip_assigned_callback	1
+../Core/Src/w5500_driver.c:169:6:ip_update_callback	1
+../Core/Src/w5500_driver.c:173:6:ip_conflict_callback	1
+../Core/Src/w5500_driver.c:185:6:wizchip_cs_pin_init	1
+../Core/Src/w5500_driver.c:196:6:wizchip_pin_cs_select	1
+../Core/Src/w5500_driver.c:202:6:wizchip_pin_cs_deselect	1
+../Core/Src/w5500_driver.c:208:6:wizchip_read_burst	1
+../Core/Src/w5500_driver.c:216:9:wizchip_read_byte	1
+../Core/Src/w5500_driver.c:223:6:wizchip_write_burst	1
+../Core/Src/w5500_driver.c:230:6:wizchip_write_byte	1
+../Core/Src/w5500_driver.c:234:7:wizchip_w5500_spi_init	2
+../Core/Src/w5500_driver.c:257:7:w5500_init	4

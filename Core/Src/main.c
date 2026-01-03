@@ -1,36 +1,38 @@
 #include <stdio.h>
 #include "main.h"
 #include "uart.h"
+#include  "w5500_driver.h"
+#include  "w5500.h"
 
 // LED on PC13 (moved from PA5 to avoid SPI conflict)
 #define LED_GPIO_PORT   GPIOC
 #define LED_PIN         (1U<<13)
 
-SPI_HandleTypeDef hspi1;
-
-static void MX_SPI1_Init(void)
-{
-    __HAL_RCC_SPI1_CLK_ENABLE();
-
-    hspi1.Instance = SPI1;
-    hspi1.Init.Mode = SPI_MODE_MASTER;
-    hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-    hspi1.Init. DataSize = SPI_DATASIZE_8BIT;
-    hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-    hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-    hspi1.Init.NSS = SPI_NSS_SOFT;
-    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
-    hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-    hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-    hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-    hspi1.Init.CRCPolynomial = 10;
-
-    if (HAL_SPI_Init(&hspi1) != HAL_OK)
-    {
-        // SPI init failed - halt
-        while(1);
-    }
-}
+//SPI_HandleTypeDef hspi1;
+//
+//static void MX_SPI1_Init(void)
+//{
+//    __HAL_RCC_SPI1_CLK_ENABLE();
+//
+//    hspi1.Instance = SPI1;
+//    hspi1.Init.Mode = SPI_MODE_MASTER;
+//    hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+//    hspi1.Init. DataSize = SPI_DATASIZE_8BIT;
+//    hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+//    hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+//    hspi1.Init.NSS = SPI_NSS_SOFT;
+//    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+//    hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+//    hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+//    hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+//    hspi1.Init.CRCPolynomial = 10;
+//
+//    if (HAL_SPI_Init(&hspi1) != HAL_OK)
+//    {
+//        // SPI init failed - halt
+//        while(1);
+//    }
+//}
 
 void HAL_SPI_MspInit(SPI_HandleTypeDef *hspi)
 {
@@ -63,7 +65,10 @@ int main(void)
     __HAL_RCC_GPIOC_CLK_ENABLE();
 
     // Initialize SPI1 (this will call HAL_SPI_MspInit automatically)
-    MX_SPI1_Init();
+    //MX_SPI1_Init();
+
+
+    wizchip_w5500_spi_init();
 
     // Set PC13 as output for LED
     LED_GPIO_PORT->MODER &= ~(3U << (13 * 2));
@@ -85,16 +90,20 @@ int main(void)
     HAL_StatusTypeDef spi_status;
 
     uart_write_string("Sending 'hello' on SPI1...\r\n");
-    spi_status = HAL_SPI_Transmit(&hspi1, spi_data, 5, 100);  // 5 bytes, 100ms timeout
+//    spi_status = HAL_SPI_Transmit(&hspi1, spi_data, 5, 100);  // 5 bytes, 100ms timeout
+//
+//    if (spi_status == HAL_OK)
+//    {
+//        uart_write_string("SPI1 Transmit:  SUCCESS\r\n\r\n");
+//    }
+//    else
+//    {
+//        uart_write_string("SPI1 Transmit: FAILED\r\n\r\n");
+//    }
 
-    if (spi_status == HAL_OK)
-    {
-        uart_write_string("SPI1 Transmit:  SUCCESS\r\n\r\n");
-    }
-    else
-    {
-        uart_write_string("SPI1 Transmit: FAILED\r\n\r\n");
-    }
+
+
+     w5500_init();
 
     uint32_t counter = 0;
     uint32_t last_tick = 0;
@@ -120,11 +129,11 @@ int main(void)
             uart_write_string("\r\n");
 
             // Send "hello" on SPI1 every 500ms
-            spi_status = HAL_SPI_Transmit(&hspi1, spi_data, 5, 100);
-            if (spi_status == HAL_OK)
-            {
-                uart_write_string("    -> SPI1 sent:  hello\r\n");
-            }
+//            spi_status = HAL_SPI_Transmit(&hspi1, spi_data, 5, 100);
+//            if (spi_status == HAL_OK)
+//            {
+//                uart_write_string("    -> SPI1 sent:  hello\r\n");
+//            }
         }
 
         // Check if any data received

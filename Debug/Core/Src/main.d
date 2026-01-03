@@ -27,7 +27,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/uart.h \
- ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h
+ ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h \
+ ../Core/Inc/w5500_driver.h ../Core/Inc/main.h \
+ G:/STM32/testDrive/Wiznet_W5500/socket.h \
+ G:/STM32/testDrive/Wiznet_W5500/wizchip_conf.h \
+ G:/STM32/testDrive/Wiznet_W5500/w5500.h \
+ G:/STM32/testDrive/Wiznet_W5500/dhcp.h \
+ G:/STM32/testDrive/Wiznet_W5500/httpServer.h \
+ G:/STM32/testDrive/Wiznet_W5500/w5500.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -58,3 +65,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 ../Core/Inc/uart.h:
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h:
+../Core/Inc/w5500_driver.h:
+../Core/Inc/main.h:
+G:/STM32/testDrive/Wiznet_W5500/socket.h:
+G:/STM32/testDrive/Wiznet_W5500/wizchip_conf.h:
+G:/STM32/testDrive/Wiznet_W5500/w5500.h:
+G:/STM32/testDrive/Wiznet_W5500/dhcp.h:
+G:/STM32/testDrive/Wiznet_W5500/httpServer.h:
+G:/STM32/testDrive/Wiznet_W5500/w5500.h:
